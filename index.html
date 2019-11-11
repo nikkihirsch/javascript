@@ -31,6 +31,8 @@
 
     var pendrawing = true;
 
+    var color_picker = document.querySelector("#picker");
+
 
     function draw(posX, posY){
     	console.log("drawing");
@@ -73,6 +75,11 @@
 		}
     }
 
+    function change() {
+    	ctx.fillStyle = color_picker.value;
+    }
+  
+
     canvas.addEventListener("mousemove", function(e){
     	draw(e.x,e.y)
     })
@@ -82,6 +89,12 @@
 		console.log(e.keyCode);
 		pencolor(e);
 	})
+
+	color_picker.addEventListener("input", function (){
+		console.log(this.value);
+		change();
+	})
+
 	
 </script>	
 </html>
